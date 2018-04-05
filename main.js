@@ -1,10 +1,8 @@
 const getImage = (objetHeros, idHero, taille, position) => {
         const image = objetHeros[idHero].images[taille]
         const imgSource = document.getElementById(`img-perso${position}`)
-   /*     if (imgsource)  // si j'ai une balise img avec le bon id dans le html
+        console.log(image) // affiche bien le lien de l'image
             imgSource.setAttribute("src",image)
-        else
-            imgSource.setAttribute("src",`http://via.placeholder.com/350x150/?text='sorry, no images'`)*/
 }
 
 const getName = (objetHero, idHero, position) => {
