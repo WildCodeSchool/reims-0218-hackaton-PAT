@@ -2,6 +2,8 @@ const getImage = (objetHeros, idHero, taille, position) => {
         const image = objetHeros[idHero].images[taille]
         const imgSource = document.getElementById(`img-perso${position}`)
         imgSource.setAttribute("src",image)
+        const hiddenId = document.getElementById(`id${position}`)
+        hiddenId.setAttribute("value",idHero)
 }
 
 const getName = (objetHero, idHero, position) => {
@@ -38,4 +40,15 @@ const construcObject = () => {
     })
 }
 
+const copyA = () => {
+    
+}
+
+// utilisation de la fonction d'initialisation des 2 decks
 construcObject()
+
+// mise en place des écouteurs sur les boutons du deck A
+const buttonsA = document.getElementsByClassName("btn-primary")
+for (let buttonA of buttonsA) {
+    buttonA.addEventListener("click",copyA())
+}
