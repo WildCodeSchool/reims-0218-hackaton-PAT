@@ -24,19 +24,21 @@ const getStat = (objetHero, idHero, position) => {
     intelSource.innerHTML=`intelligence: ${stat["intelligence"]}`
 }
 
-const fillHero = (idHero, taille, position) => {
+const fillHero = (tabHero, idHero, taille, position) => {
+    getImage(tabHero,idHero,taille,position)
+    getName(tabHero,idHero, position)
+    getStat(tabHero,idHero, position)
+}
+
+const construcObject = () => {
     const heroes = fetch ("https://akabab.github.io/superhero-api/api/all.json")
     .then(res => res.json())
     .then(heroes => {
-        getImage(heroes,idHero,taille,position)
-        getName(heroes,idHero, position)
-        getStat(heroes,idHero, position)
+        for (let i=0;i<10; i++) {
+            const idAleatoire = Math.floor(Math.random()*562)
+            fillHero(heroes, idAleatoire, "sm", i)
+        }
     })
 }
 
-
-for (let i=0;i<10; i++) {
-    const idAleatoire = Math.floor(Math.random()*562)
-    fillHero(idAleatoire,"sm", i)
-}
-
+construcObject()
