@@ -1,8 +1,7 @@
 const getImage = (objetHeros, idHero, taille, position) => {
         const image = objetHeros[idHero].images[taille]
         const imgSource = document.getElementById(`img-perso${position}`)
-        console.log(image) // affiche bien le lien de l'image
-            imgSource.setAttribute("src",image)
+        imgSource.setAttribute("src",image)
 }
 
 const getName = (objetHero, idHero, position) => {
