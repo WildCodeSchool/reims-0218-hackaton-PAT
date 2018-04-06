@@ -16,9 +16,14 @@ const buttonsB = document.getElementsByClassName("btn-success")
 const buttonBattle = document.getElementById("btn-danger")
 const idA = document.getElementById("idA")
 const idB = document.getElementById("idB")
+const resultatBattle = document.getElementById("battle")
 
 //tableau des 10 héros des 2 decks
 const displayedHeroes = []
+
+// conditions initiales
+let vieA = 300
+let vieB = 300
 
 const getImage = (objetHeros, idHero, taille, position) => {
         const image = objetHeros[idHero].images[taille]
@@ -49,14 +54,28 @@ const fillHero = (tabHero, idHero, taille, position) => {
     getStat(tabHero,idHero, position)
 }
 
-const battle = (tableauHeros) => {
+const battle = () => {
     const combattantA = parseInt(idA.getAttribute("value"))
     const combattantB = parseInt(idB.getAttribute("value"))
-    const diffCombat=tableauHeros[combattantA].combat-tableauHeros[combattantB].combat
-    console.log(tableauHeros)
-    const diffPower=tableauHeros[combattantA].power-tableauHeros[combattantB].power
-    const diffIntelligence=tableauHeros[combattantA].intelligence-tableauHeros[combattantB].intelligence
+    let perdant = ""
+    const diffCombat=displayedHeroes[combattantA].powerstats.combat-displayedHeroes[combattantB].powerstats.combat
+    const diffPower=displayedHeroes[combattantA].powerstats.power-displayedHeroes[combattantB].powerstats.power
+    const diffIntelligence=displayedHeroes[combattantA].powerstats.intelligence-displayedHeroes[combattantB].powerstats.intelligence
     const diff = diffCombat+diffPower+diffIntelligence
+    if (diff>0) {
+        vieB -= Math.abs(diff)
+        perdant = 'B'
+    }
+    else if (diff<0) {
+        vieA -= Math.abs(diff)
+        perdant = 'A'
+    }
+    else {
+        perdant = '-'
+    }
+
+    if (perdant!='-')
+        resultatBattle.innerHTML=`le joueur ${perdant} a perdu ${Math.abs(diff)} points de vie`
 }
 
 const construcObject = () => {
@@ -77,6 +96,7 @@ const construcObject = () => {
             intelligenceA.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
             const imageCombattantA = displayedHeroes[indexHero].images.sm
             imgSourceCombattantA.setAttribute("src", imageCombattantA)
+            // pour se souvenir de l'index du combattant A
             idA.setAttribute("value",indexHero)
         }
         const copyB = (e) => {
@@ -87,6 +107,7 @@ const construcObject = () => {
             intelligenceB.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
             const imageCombattantB = displayedHeroes[indexHero].images.sm
             imgSourceCombattantB.setAttribute("src", imageCombattantB)
+            // pour se souvenir de l'index du combattant B
             idB.setAttribute("value",indexHero)
         }
         // mise en place des écouteurs sur les boutons du deck A et B
@@ -97,10 +118,12 @@ const construcObject = () => {
             buttonB.addEventListener("click", copyB)
         }
    //     if ((checkA.getAttribute("checked")==="checked") && (checkB.getAttribute("checked")==="checked"))
-            buttonBattle.addEventListener("click",battle(displayedHeroes))
+            buttonBattle.addEventListener("click",battle)
     })
 }
 
 // utilisation de la fonction d'initialisation des 2 decks
-construcObject()
+
+    construcObject()
+
 
