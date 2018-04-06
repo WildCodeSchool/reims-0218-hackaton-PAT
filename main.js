@@ -14,7 +14,10 @@ const checkB= document.getElementById("checkB")
 const buttonsA = document.getElementsByClassName("btn-primary")
 const buttonsB = document.getElementsByClassName("btn-success")
 const buttonBattle = document.getElementById("btn-danger")
+const idA = document.getElementById("idA")
+const idB = document.getElementById("idB")
 
+//tableau des 10 héros des 2 decks
 const displayedHeroes = []
 
 const getImage = (objetHeros, idHero, taille, position) => {
@@ -46,8 +49,14 @@ const fillHero = (tabHero, idHero, taille, position) => {
     getStat(tabHero,idHero, position)
 }
 
-const battle = () => {
-
+const battle = (tableauHeros) => {
+    const combattantA = parseInt(idA.getAttribute("value"))
+    const combattantB = parseInt(idB.getAttribute("value"))
+    const diffCombat=tableauHeros[combattantA].combat-tableauHeros[combattantB].combat
+    console.log(tableauHeros)
+    const diffPower=tableauHeros[combattantA].power-tableauHeros[combattantB].power
+    const diffIntelligence=tableauHeros[combattantA].intelligence-tableauHeros[combattantB].intelligence
+    const diff = diffCombat+diffPower+diffIntelligence
 }
 
 const construcObject = () => {
@@ -68,6 +77,7 @@ const construcObject = () => {
             intelligenceA.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
             const imageCombattantA = displayedHeroes[indexHero].images.sm
             imgSourceCombattantA.setAttribute("src", imageCombattantA)
+            idA.setAttribute("value",indexHero)
         }
         const copyB = (e) => {
             const indexHero = e.target.id.split('-')[1]
@@ -77,6 +87,7 @@ const construcObject = () => {
             intelligenceB.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
             const imageCombattantB = displayedHeroes[indexHero].images.sm
             imgSourceCombattantB.setAttribute("src", imageCombattantB)
+            idB.setAttribute("value",indexHero)
         }
         // mise en place des écouteurs sur les boutons du deck A et B
         for (let buttonA of buttonsA) {
@@ -86,7 +97,7 @@ const construcObject = () => {
             buttonB.addEventListener("click", copyB)
         }
    //     if ((checkA.getAttribute("checked")==="checked") && (checkB.getAttribute("checked")==="checked"))
-            buttonBattle.addEventListener("click",battle)
+            buttonBattle.addEventListener("click",battle(displayedHeroes))
     })
 }
 
