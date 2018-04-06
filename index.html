@@ -11,14 +11,14 @@
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
 
 
-    <title>Hackaton superhero Choose</title>
+    <title>Super Heroes Fight</title>
   </head>
   <body>
-    <h1>Hackaton superhero Choose</h1>
+    <h1 class="text-center my-5">SUPER HEROES FIGHT</h1>
 
-    <div class="container">
+    <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="card col-10 col-md-2 p-0 m-3" style="width: 18rem;">
+        <div class="card col-10 col-md-2 p-0 m-3">
           <img class="card-img-top" src="" alt="Card image cap" id="img-perso0">
           <input type="hidden" id="id0">  <!-- id du heros -->
           <div class="card-body">
@@ -31,7 +31,7 @@
             <button id="button-0" type="button" class="btn btn-primary">Choose</button>
           </div>
         </div>
-        <div class="card col-10 col-md-2 p-0 m-3" style="width: 18rem;">
+        <div class="card col-10 col-md-2 p-0 m-3">
           <img class="card-img-top" src="" alt="Card image cap" id="img-perso1">
           <input type="hidden" id="id1">  <!-- id du heros -->
           <div class="card-body">
@@ -44,7 +44,7 @@
             <button id="button-1" type="button" class="btn btn-primary">Choose</button>
           </div>
         </div>
-        <div class="card col-10 col-md-2 p-0 m-3" style="width: 18rem;">
+        <div class="card col-10 col-md-2 p-0 m-3">
           <img class="card-img-top" src="" alt="Card image cap" id="img-perso2">
           <input type="hidden" id="id2">  <!-- id du heros -->
           <div class="card-body">
@@ -57,7 +57,7 @@
             <button id="button-2" type="button" class="btn btn-primary">Choose</button>
           </div>
         </div>
-        <div class="card col-10 col-md-2 p-0 m-3" style="width: 18rem;">
+        <div class="card col-10 col-md-2 p-0 m-3">
           <img class="card-img-top" src="" alt="Card image cap" id="img-perso3">
           <input type="hidden" id="id3">  <!-- id du heros -->
           <div class="card-body">
@@ -70,7 +70,7 @@
             <button id="button-3" type="button" class="btn btn-primary">Choose</button>
           </div>
         </div>
-        <div class="card col-10 col-md-2 p-0 m-3" style="width: 18rem;">
+        <div class="card col-10 col-md-2 p-0 m-3">
           <img class="card-img-top" src="" alt="Card image cap" id="img-perso4">
           <input type="hidden" id="id4">  <!-- id du heros -->
           <div class="card-body">
@@ -85,55 +85,43 @@
         </div>
       </div>
     </div>
-    <div class "container">
-      <div class ="row mr-3">
-          <div class="col-12 col-md-2 p-0 m-3" style="width: 15rem;">
+    <div class ="container-fluid mt-5">
+      <div class ="row justify-content-center">
+        <div class="card col-12 col-md-2 offset-2 p-0 m-3" id="cardA">
+        <img class="card-img-top" src="http://www.hearthstone-decks.com/upload/news/2018/mars/22/dos-carte-s36-hearthstone.jpg" alt="Card A" id="img-A">
+        <input type="hidden" id="idA" title="Ready">  <!-- id du heros -->
+          <div class="card-body">
+            <h5 class="card-title" id="name-A">En attente du joueur A</h5>
+            <p class="card-text" id="combat-A"></p>
+            <p class="card-text" id="power-A"></p>
+            <p class="card-text" id="intelligence-A"></p>
           </div>
-            <div class="card col-12 col-md-2 offset-2 p-0 m-3" id="cardA" style="width: 18rem;">
-              <img class="card-img-top" src="" alt="Card A" id="img-A">
-              <input type="hidden" id="idA" title="Ready">  <!-- id du heros -->
-              <div class="card-body">
-                <h5 class="card-title" id="name-A">En attente du joueur A</h5>
-                <p class="card-text" id="combat-A"></p>
-                <p class="card-text" id="power-A"></p>
-                <p class="card-text" id="intelligence-A"></p>
-              </div>
-              <div class="card-footer text-center">
-                <input type="checkbox" value="Ready" id="checkA">
-                <label>Ready</label>
-              </div>
-            </div>
-            <div class="card col-12 col-md-2 p-0 m-3 text-center align-middle" style="width: 18rem;">
-              <img class="card-img-top" src="http://www.hearthstone-decks.com/upload/news/2014/juillet/21/dos-carte-icecrown.jpg" alt="Card image side" id="img-side"> 
-              <div class="card-body">
-                <h5 class="card-title" id="result">Ready to fight ?</h5>
-                <p class="card-text" id="battle">Go !</p>
-              </div>
-              <div class="card-footer text-center">
-                <button type="button" class="btn btn-danger" id="btn-danger">Battle</button>
-              </div>
-            
-            </div>
-            <div class="card col-12 col-md-2 p-0 m-3" id="cardB" style="width: 18rem;">
-                <img class="card-img-top" src="" alt="Card B" id="img-B">
-                <input type="hidden" id="idB">  <!-- id du heros -->
-                <div class="card-body">
-                  <h5 class="card-title" id="name-B">En attente du joueur B</h5>
-                  <p class="card-text" id="combat-B"></p>
-                  <p class="card-text" id="power-B"></p>
-                  <p class="card-text" id="intelligence-B"></p>
-                </div>
-                <div class="card-footer text-center">
-                  <input type="checkbox" value="Ready" title="Ready" id="checkB">
-                  <label>Ready</label>
-                  <input type="hidden" id="id0"></input>  <!-- id du heros -->
-                </div>                
-            </div>
+        </div>
+        <div class="card col-12 col-md-2 p-0 m-3 text-center align-middle">
+          <img class="card-img-top" src="http://www.hearthstone-decks.com/upload/news/2014/juillet/21/dos-carte-icecrown.jpg" alt="Card image side" id="img-side"> 
+          <div class="card-body">
+            <h5 class="card-title" id="result">Ready to fight ?</h5>
+            <p class="card-text" id="battle">Go !</p>
+          </div>
+          <div class="card-footer text-center">
+            <button type="button" class="btn btn-danger" id="btn-danger">Battle</button>
+          </div>     
+        </div>
+        <div class="card col-12 col-md-2 p-0 m-3" id="cardB">
+          <img class="card-img-top" src="http://www.hearthstone-decks.com/upload/news/2018/mars/22/dos-carte-s36-hearthstone.jpg" alt="Card B" id="img-B">
+          <input type="hidden" id="idB">  <!-- id du heros -->
+          <div class="card-body">
+            <h5 class="card-title" id="name-B">En attente du joueur B</h5>
+            <p class="card-text" id="combat-B"></p>
+            <p class="card-text" id="power-B"></p>
+            <p class="card-text" id="intelligence-B"></p>
+          </div>               
+        </div>
       </div>
     </div>
-    <div class ="container m-0">
+    <div class ="container-fluid mt-5">
       <div class="row justify-content-center">
-          <div class="card col-12 col-md-2 p-0 m-3" style="width: 18rem;">
+          <div class="card col-12 col-md-2 p-0 m-3">
             <img class="card-img-top" src="" alt="Card image cap" id="img-perso5">
             <input type="hidden" id="id5">  <!-- id du heros -->
             <div class="card-body">
@@ -146,7 +134,7 @@
               <button id="button-5" type="button" class="btn btn-success">Choose</button>
             </div>
           </div>
-          <div class="card col-12 col-md-2 p-0 m-3" style="width: 18rem;">
+          <div class="card col-12 col-md-2 p-0 m-3">
             <img class="card-img-top" src="" alt="Card image cap" id="img-perso6">
             <input type="hidden" id="id6">  <!-- id du heros -->
             <div class="card-body">
@@ -159,7 +147,7 @@
               <button id="button-6" type="button" class="btn btn-success">Choose</button>
             </div>
           </div>
-          <div class="card col-12 col-md-2 p-0 m-3" style="width: 18rem;">
+          <div class="card col-12 col-md-2 p-0 m-3">
             <img class="card-img-top" src="" alt="Card image cap" id="img-perso7">
             <input type="hidden" id="id7">  <!-- id du heros -->
             <div class="card-body">
@@ -172,7 +160,7 @@
               <button id="button-7" type="button" class="btn btn-success">Choose</button>
             </div>
           </div>
-          <div class="card col-12 col-md-2 p-0 m-3" style="width: 18rem;">
+          <div class="card col-12 col-md-2 p-0 m-3">
             <img class="card-img-top" src="" alt="Card image cap" id="img-perso8">
             <input type="hidden" id="id8">  <!-- id du heros -->
             <div class="card-body">
@@ -185,7 +173,7 @@
               <button id="button-8" type="button" class="btn btn-success">Choose</button>
             </div>
           </div>
-          <div class="card col-12 col-md-2 p-0 m-3" style="width: 18rem;">
+          <div class="card col-12 col-md-2 p-0 m-3">
             <img class="card-img-top" src="" alt="Card image cap" id="img-perso9">
             <input type="hidden" id="id9">  <!-- id du heros -->
             <div class="card-body">
