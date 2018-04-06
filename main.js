@@ -18,6 +18,10 @@ const idA = document.getElementById("idA")
 const idB = document.getElementById("idB")
 const resultatBattle = document.getElementById("battle")
 const titleResult = document.getElementById("result")
+const lifeA = document.getElementById("life-A")
+const namePlayerA = document.getElementById("namePlayerA").value
+const lifeB = document.getElementById("life-B")
+const namePlayerB = document.getElementById("namePlayerB").value
 
 //tableau des 10 héros des 2 decks
 const displayedHeroes = []
@@ -75,9 +79,12 @@ const battle = () => {
         perdant = '-'
     }
 
-    if (perdant!='-')
+    if (perdant!='-') {
         resultatBattle.innerHTML=`le joueur ${perdant} a perdu ${Math.abs(diff)} points de vie`
         titleResult.innerHTML=`Resultat`
+    }
+    lifeA.innerHTML=`Vie de ${namePlayerA}: ${vieA}`
+    lifeB.innerHTML=`Vie de ${namePlayerB}: ${vieB}` 
 }
 
 const construcObject = () => {
@@ -119,7 +126,6 @@ const construcObject = () => {
         for (let buttonB of buttonsB) {
             buttonB.addEventListener("click", copyB)
         }
-   //     if ((checkA.getAttribute("checked")==="checked") && (checkB.getAttribute("checked")==="checked"))
             buttonBattle.addEventListener("click",battle)
     })
 }
