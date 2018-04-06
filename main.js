@@ -30,25 +30,65 @@ const fillHero = (tabHero, idHero, taille, position) => {
 }
 
 const construcObject = () => {
-    const heroes = fetch ("https://akabab.github.io/superhero-api/api/all.json")
+    fetch ("https://akabab.github.io/superhero-api/api/all.json")
     .then(res => res.json())
     .then(heroes => {
+        const displayedHeroes = []
         for (let i=0;i<10; i++) {
             const idAleatoire = Math.floor(Math.random()*562)
             fillHero(heroes, idAleatoire, "sm", i)
+            displayedHeroes.push(heroes[idAleatoire])
+        }
+        console.log(displayedHeroes)
+        const copyA = (e) => {
+            console.log("copyA")
+            console.log("index of the selected hero: ",e.target.id.split('-')[1])
+            const indexHero = e.target.id.split('-')[1]
+            console.log("selected hero: ", displayedHeroes[indexHero])
+            const nameA = document.getElementById("name-A")
+            nameA.innerHTML = displayedHeroes[indexHero].name
+            const combatA = document.getElementById("combat-A")
+            combatA.innerHTML = `Combat : ${displayedHeroes[indexHero].powerstats.combat}`
+            const powerA = document.getElementById("power-A")
+            powerA.innerHTML = `Power : ${displayedHeroes[indexHero].powerstats.power}`
+            const intelligenceA = document.getElementById("intelligence-A")
+            intelligenceA.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
+            const imageCombattantA = displayedHeroes[indexHero].images.sm
+            const imgSourceCombattantA = document.getElementById("img-A")
+            imgSourceCombattantA.setAttribute("src", imageCombattantA)
+        }
+        const copyB = (e) => {
+            console.log("copyB")
+            console.log("index of the selected hero: ", e.target.id.split('-')[1])
+            const indexHero = e.target.id.split('-')[1]
+            console.log("selected hero: ", displayedHeroes[indexHero])
+            const nameB = document.getElementById("name-B")
+            nameB.innerHTML = displayedHeroes[indexHero].name
+            const combatB = document.getElementById("combat-B")
+            combatB.innerHTML = `Combat : ${displayedHeroes[indexHero].powerstats.combat}`
+            const powerB = document.getElementById("power-B")
+            powerB.innerHTML = `Power : ${displayedHeroes[indexHero].powerstats.power}`
+            const intelligenceB = document.getElementById("intelligence-B")
+            intelligenceB.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
+            const imageCombattantB = displayedHeroes[indexHero].images.sm
+            const imgSourceCombattantB = document.getElementById("img-B")
+            imgSourceCombattantB.setAttribute("src", imageCombattantB)
+        }
+        // mise en place des écouteurs sur les boutons du deck A
+        const buttonsA = document.getElementsByClassName("btn-primary")
+        const buttonsB = document.getElementsByClassName("btn-success")
+        
+        for (let buttonA of buttonsA) {
+            buttonA.addEventListener("click",copyA)
+        }
+        for (let buttonB of buttonsB) {
+            buttonB.addEventListener("click", copyB)
         }
     })
 }
 
-const copyA = () => {
-    
-}
+
 
 // utilisation de la fonction d'initialisation des 2 decks
 construcObject()
 
-// mise en place des écouteurs sur les boutons du deck A
-const buttonsA = document.getElementsByClassName("btn-primary")
-for (let buttonA of buttonsA) {
-    buttonA.addEventListener("click",copyA())
-}

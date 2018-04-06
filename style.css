@@ -1,3 +1,12 @@
 body {
     font-family: 'Permanent Marker', cursive;
 }
+
+#name-A,
+#name-B {
+    font-size: 35px;
+}
+
+.card-text {
+    font-size: 18px;
+}
