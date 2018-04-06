@@ -17,6 +17,7 @@ const buttonBattle = document.getElementById("btn-danger")
 const idA = document.getElementById("idA")
 const idB = document.getElementById("idB")
 const resultatBattle = document.getElementById("battle")
+const titleResult = document.getElementById("result")
 
 //tableau des 10 héros des 2 decks
 const displayedHeroes = []
@@ -76,6 +77,7 @@ const battle = () => {
 
     if (perdant!='-')
         resultatBattle.innerHTML=`le joueur ${perdant} a perdu ${Math.abs(diff)} points de vie`
+        titleResult.innerHTML=`Resultat`
 }
 
 const construcObject = () => {
