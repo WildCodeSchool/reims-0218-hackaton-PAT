@@ -85,6 +85,12 @@ const battle = () => {
     }
     lifeA.innerHTML=`Vie de ${namePlayerA}: ${vieA}`
     lifeB.innerHTML=`Vie de ${namePlayerB}: ${vieB}` 
+
+    let contenuResultatBattle = resultatBattle.innerHTML
+    if (vieA <= 0 || vieB <= 0) {
+        contenuResultatBattle += `<hr>gagnant: ${(vieA < vieB) ? namePlayerB : namePlayerA}`
+        resultatBattle.innerHTML = contenuResultatBattle
+        } 
 }
 
 const construcObject = () => {
