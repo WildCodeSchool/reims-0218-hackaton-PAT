@@ -91,7 +91,7 @@
           </div>
             <div class="card col-12 col-md-2 offset-2 p-0 m-3" id="cardA" style="width: 18rem;">
               <img class="card-img-top" src="" alt="Card A" id="img-A">
-              <input type="hidden" id="idA">  <!-- id du heros -->
+              <input type="hidden" id="idA" title="Ready">  <!-- id du heros -->
               <div class="card-body">
                 <h5 class="card-title" id="name-A">En attente du joueur A</h5>
                 <p class="card-text" id="combat-A"></p>
@@ -99,7 +99,8 @@
                 <p class="card-text" id="intelligence-A"></p>
               </div>
               <div class="card-footer text-center">
-                <input type="checkbox" value="Ready">
+                <input type="checkbox" value="Ready" id="checkA">
+                <label>Ready</label>
               </div>
             </div>
             <div class="card col-12 col-md-2 p-0 m-3" id="battle" style="width: 18rem;">
@@ -115,7 +116,9 @@
                   <p class="card-text" id="intelligence-B"></p>
                 </div>
                 <div class="card-footer text-center">
-                  <input type="checkbox" value="Ready">
+                  <input type="checkbox" value="Ready" title="Ready" id="checkB">
+                  <label>Ready</label>
+                  <input type="hidden" id="id0"></input>  <!-- id du heros -->
                 </div>                
             </div>
         <div class="card col-12 col-md-2 p-0 m-3" style="width: 18rem;">
@@ -125,7 +128,7 @@
             <p class="card-text">Choose your card.</p>
           </div>
           <div class="card-footer text-center">
-            <button type="button" class="btn btn-danger">Battle</button>
+            <button type="button" class="btn btn-danger" id="btn-danger">Battle</button>
           </div>
         </div>
       </div>

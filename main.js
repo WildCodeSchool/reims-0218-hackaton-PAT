@@ -1,3 +1,22 @@
+// définition de tous les éléments Html utiles au programme
+const nameA = document.getElementById("name-A")
+const imgSourceCombattantA = document.getElementById("img-A")
+const combatA = document.getElementById("combat-A")
+const intelligenceA = document.getElementById("intelligence-A")
+const powerA = document.getElementById("power-A")
+const checkA= document.getElementById("checkA")
+const nameB = document.getElementById("name-B")
+const imgSourceCombattantB = document.getElementById("img-B")
+const combatB = document.getElementById("combat-B")
+const intelligenceB = document.getElementById("intelligence-B")
+const powerB = document.getElementById("power-B")
+const checkB= document.getElementById("checkB")
+const buttonsA = document.getElementsByClassName("btn-primary")
+const buttonsB = document.getElementsByClassName("btn-success")
+const buttonBattle = document.getElementById("btn-danger")
+
+const displayedHeroes = []
+
 const getImage = (objetHeros, idHero, taille, position) => {
         const image = objetHeros[idHero].images[taille]
         const imgSource = document.getElementById(`img-perso${position}`)
@@ -5,13 +24,11 @@ const getImage = (objetHeros, idHero, taille, position) => {
         const hiddenId = document.getElementById(`id${position}`)
         hiddenId.setAttribute("value",idHero)
 }
-
 const getName = (objetHero, idHero, position) => {
     const name = objetHero[idHero].name
     const nameSource = document.getElementById(`name-perso${position}`)
     nameSource.innerHTML=name
 }
-
 
 const getStat = (objetHero, idHero, position) => {
     const stat = objetHero[idHero].powerstats
@@ -29,11 +46,14 @@ const fillHero = (tabHero, idHero, taille, position) => {
     getStat(tabHero,idHero, position)
 }
 
+const battle = () => {
+
+}
+
 const construcObject = () => {
     fetch ("https://akabab.github.io/superhero-api/api/all.json")
     .then(res => res.json())
     .then(heroes => {
-        const displayedHeroes = []
         for (let i=0;i<10; i++) {
             const idAleatoire = Math.floor(Math.random()*562)
             fillHero(heroes, idAleatoire, "sm", i)
@@ -41,53 +61,34 @@ const construcObject = () => {
         }
         console.log(displayedHeroes)
         const copyA = (e) => {
-            console.log("copyA")
-            console.log("index of the selected hero: ",e.target.id.split('-')[1])
             const indexHero = e.target.id.split('-')[1]
-            console.log("selected hero: ", displayedHeroes[indexHero])
-            const nameA = document.getElementById("name-A")
             nameA.innerHTML = displayedHeroes[indexHero].name
-            const combatA = document.getElementById("combat-A")
             combatA.innerHTML = `Combat : ${displayedHeroes[indexHero].powerstats.combat}`
-            const powerA = document.getElementById("power-A")
             powerA.innerHTML = `Power : ${displayedHeroes[indexHero].powerstats.power}`
-            const intelligenceA = document.getElementById("intelligence-A")
             intelligenceA.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
             const imageCombattantA = displayedHeroes[indexHero].images.sm
-            const imgSourceCombattantA = document.getElementById("img-A")
             imgSourceCombattantA.setAttribute("src", imageCombattantA)
         }
         const copyB = (e) => {
-            console.log("copyB")
-            console.log("index of the selected hero: ", e.target.id.split('-')[1])
             const indexHero = e.target.id.split('-')[1]
-            console.log("selected hero: ", displayedHeroes[indexHero])
-            const nameB = document.getElementById("name-B")
             nameB.innerHTML = displayedHeroes[indexHero].name
-            const combatB = document.getElementById("combat-B")
             combatB.innerHTML = `Combat : ${displayedHeroes[indexHero].powerstats.combat}`
-            const powerB = document.getElementById("power-B")
             powerB.innerHTML = `Power : ${displayedHeroes[indexHero].powerstats.power}`
-            const intelligenceB = document.getElementById("intelligence-B")
             intelligenceB.innerHTML = `Intelligence : ${displayedHeroes[indexHero].powerstats.intelligence}`
             const imageCombattantB = displayedHeroes[indexHero].images.sm
-            const imgSourceCombattantB = document.getElementById("img-B")
             imgSourceCombattantB.setAttribute("src", imageCombattantB)
         }
-        // mise en place des écouteurs sur les boutons du deck A
-        const buttonsA = document.getElementsByClassName("btn-primary")
-        const buttonsB = document.getElementsByClassName("btn-success")
-        
+        // mise en place des écouteurs sur les boutons du deck A et B
         for (let buttonA of buttonsA) {
             buttonA.addEventListener("click",copyA)
         }
         for (let buttonB of buttonsB) {
             buttonB.addEventListener("click", copyB)
         }
+   //     if ((checkA.getAttribute("checked")==="checked") && (checkB.getAttribute("checked")==="checked"))
+            buttonBattle.addEventListener("click",battle)
     })
 }
-
-
 
 // utilisation de la fonction d'initialisation des 2 decks
 construcObject()
