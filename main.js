@@ -30,25 +30,34 @@ const fillHero = (tabHero, idHero, taille, position) => {
 }
 
 const construcObject = () => {
-    const heroes = fetch ("https://akabab.github.io/superhero-api/api/all.json")
+    fetch ("https://akabab.github.io/superhero-api/api/all.json")
     .then(res => res.json())
     .then(heroes => {
+        const displayedHeroes = []
         for (let i=0;i<10; i++) {
             const idAleatoire = Math.floor(Math.random()*562)
             fillHero(heroes, idAleatoire, "sm", i)
+            displayedHeroes.push(heroes[idAleatoire])
         }
+        console.log(displayedHeroes)
+        const copyA = (e) => {
+            console.log("copyA")
+            console.log("index of the selected hero: ",e.target.id.split('-')[1])
+            const indexHero = e.target.id.split('-')[1]
+            console.log("selected hero: ", displayedHeroes[indexHero])
+        }
+        // mise en place des écouteurs sur les boutons du deck A
+        const buttonsA = document.getElementsByClassName("btn-primary")
+        
+        for (let buttonA of buttonsA) {
+            buttonA.addEventListener("click",copyA)
+        }
+
     })
 }
 
-const copyA = () => {
-    
-}
+
 
 // utilisation de la fonction d'initialisation des 2 decks
 construcObject()
 
-// mise en place des écouteurs sur les boutons du deck A
-const buttonsA = document.getElementsByClassName("btn-primary")
-for (let buttonA of buttonsA) {
-    buttonA.addEventListener("click",copyA())
-}
